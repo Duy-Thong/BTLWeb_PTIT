@@ -1,16 +1,16 @@
 .center {
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
 }
 
-.background{
+.background {
     background-color: rgb(39, 37, 37);
     color: aliceblue !important;
-} 
+}
 
 .text-body {
     color: aliceblue !important;
@@ -19,6 +19,7 @@
 .topic {
     padding: 5%;
 }
+
 .h1 {
     text-align: center;
 }
@@ -28,7 +29,7 @@
 }
 
 .title {
-    font-size:large !important;
+    font-size: large !important;
     font-weight: 600 !important;
 }
 
@@ -38,10 +39,11 @@
 }
 
 .item-center {
-   margin-left: 30%;
+    margin-left: 30%;
 }
 
-.main-side-item, .side-item {
+.main-side-item,
+.side-item {
     min-width: 100%;
 }
 
@@ -63,46 +65,49 @@
     padding-left: .75em;
     padding-right: .75em;
 }
+
 .card-registration .select-arrow {
     top: 13px;
 }
 
-  /* Thiết kế CSS cho navbar */
-  .navbar {
-      background-color: #333;
-      /* Màu nền của navbar */
-      color: #fff;
-      /* Màu chữ */
-  }
+/* Thiết kế CSS cho navbar */
+.navbar {
+    background-color: #333;
+    /* Màu nền của navbar */
+    color: #fff;
+    font-size: large!important;
+    /* Màu chữ */
+    font-weight: bold!important;
+}
 
-  .navbar-brand {
-      font-size: 24px;
-      /* Kích thước font cho brand */
-      color: #fff;
-      /* Màu chữ cho brand */
-  }
+.navbar-brand {
+    font-size: 24px;
+    /* Kích thước font cho brand */
+    color: #fff;
+    /* Màu chữ cho brand */
+}
 
-  .navbar-nav {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-  }
-
-  .nav-item {
-      padding: 0 15px;
-      /* Khoảng cách giữa các mục menu */
-  }
-
-  .nav-link {
-      color: #fff;
-      /* Màu chữ cho các mục menu */
-  }
 .navbar-nav {
-    margin-left: auto!important;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-item {
+    padding: 0 15px;
+    /* Khoảng cách giữa các mục menu */
+}
+
+.nav-link {
+    color: #fff;
+    /* Màu chữ cho các mục menu */
+}
+
+.navbar-nav {
+    margin-left: auto !important;
 }
 
 .container {
     margin-top: 20px;
-    
-}
 
+}

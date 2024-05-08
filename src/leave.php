@@ -12,16 +12,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="\assets\styles.css">
-        <style>
-            .navbar-nav {
-                margin-left: auto;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
         <title>Home Page</title>
     </head>
 
-    <body>
+    <body class="body">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">

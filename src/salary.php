@@ -13,16 +13,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.datatables.net/v/bs5/dt-2.0.5/datatables.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="\assets\styles.css">
-        <style>
-            .navbar-nav {
-                margin-left: auto;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
         <title>Home Page</title>
     </head>
 
-    <body>
+    <body class="body">
 
 
         <script src="https://code.jquery.com/jquery-3.7.0.js"></script>

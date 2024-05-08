@@ -1,7 +1,31 @@
 <?php
 session_start();
+require ('connect.php');
 
 if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['logged_in']) {
+
+    // Kiểm tra xem người dùng đã gửi yêu cầu POST chưa
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $month = $_POST['month'];
+        $year = $_POST['year'];
+        $query = "SELECT id_nv, SUM(DATEDIFF(ngay_ket_thuc, ngay_bat_dau) + 1) AS total_leave_days
+                  FROM nghi_phep_tbl
+                  WHERE MONTH(ngay_bat_dau) = $month AND YEAR(ngay_bat_dau) = $year
+                  GROUP BY id_nv
+                  ORDER BY total_leave_days DESC
+                  LIMIT 3";
+
+        $result = $sql_connect->query($query);
+
+        if ($result->num_rows > 0) {
+            $top_leave_employees = array();
+            while ($row = $result->fetch_assoc()) {
+                $top_leave_employees[] = $row;
+            }
+        } else {
+            $top_leave_employees = array();
+        }
+    }
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -11,16 +35,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="\assets\styles.css">
-        <style>
-            .navbar-nav {
-                margin-left: auto;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
+
         <title>Home Page</title>
     </head>
 
-    <body>
+    <body class="body">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
@@ -71,104 +91,133 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
             </nav>
 
             <div class="col py-3">
-                <h1>Trang chủ</h1>
+                <div class="row ">
+                    <h1>Trang chủ</h1>
+
+                    <br><br>
+                </div>
                 <hr style="border: 2px solid blue">
-                <br><br>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row justify-content-between">
-                            <div class="col-xl-3">
-                                <div class="card" style="background-color: #337ab7; color: #fff">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h2>Chức Vụ</h2>
-                                            </div>
-                                            <div class="col" style="max-width: fit-content !important;">
-                                                <i class="fs-4 bi bi-table"></i>
-                                            </div>
-                                        </div>
-                                        <br><br>
-                                        <a href="department.php" class="text-white text-decoration-none"
-                                            style="min-width: 100%; text-align: center;">
-                                            Xem Thêm
-                                            <i class="bi bi-arrow-right-circle-fill mx-1"></i>
-                                        </a>
-                                    </div>
+                <div class="row mt-5 ml-5 ">
+                    <div class=" col-4 pd-3" style="background-color: #496989">
+                        <div class="">
+                            <form method="POST">
+                                <div class="row mb-3">
+                                    <h5 class="text-center mt-3"><strong> Top 3 nhân viên nghỉ nhiều nhất</strong></h5>
                                 </div>
-                            </div>
-
-                            <div class="col-xl-3">
-                                <div class="card" style="background-color: #c43349; color: #fff">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h2>Nhân Viên</h2>
-                                            </div>
-                                            <div class="col" style="max-width: fit-content !important;">
-                                                <i class="fs-4 bi bi-people"></i>
-                                            </div>
+                                <form method="POST">
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <select class="form-select" id="month" name="month" required>
+                                                <option value="" disabled selected>Chọn tháng</option>
+                                                <?php
+                                                for ($i = 1; $i <= 12; $i++) {
+                                                    echo "<option value='$i'>$i</option>";
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <br><br>
-                                        <a href="staff.php" class="text-white text-decoration-none"
-                                            style="min-width: 100%; text-align: center;">
-                                            Xem Thêm
-                                            <i class="bi bi-arrow-right-circle-fill mx-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3">
-                                <div class="card" style="background-color: #d65b36; color: #fff">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h2>Nghỉ Phép</h2>
-                                            </div>
-                                            <div class="col" style="max-width: fit-content !important;">
-                                                <i class="fs-4 bi bi-person-x"></i>
-                                            </div>
+                                        <div class="col">
+                                            <select class="form-select" id="year" name="year" required>
+                                                <option value="" disabled selected>Chọn năm</option>
+                                                <?php
+                                                $current_year = date("Y");
+                                                for ($i = $current_year; $i >= $current_year - 10; $i--) {
+                                                    echo "<option value='$i'>$i</option>";
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <br><br>
-                                        <a href="leave.php" class="text-white text-decoration-none"
-                                            style="min-width: 100%; text-align: center;">
-                                            Xem Thêm
-                                            <i class="bi bi-arrow-right-circle-fill mx-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-3">
-                                <div class="card" style="background-color: #21963c; color: #fff">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h2>Lương</h2>
-                                            </div>
-                                            <div class="col" style="max-width: fit-content !important;">
-                                                <i class="fs-4 bi bi-cash-coin"></i>
-                                            </div>
+                                        <div class="col-auto">
+                                            <button type="submit" class="btn btn-primary"
+                                                style="background-color: green">Xác nhận</button>
                                         </div>
-                                        <br><br>
-                                        <a href="salary.php" class="text-white text-decoration-none"
-                                            style="min-width: 100%; text-align: center;">
-                                            Xem Thêm
-                                            <i class="bi bi-arrow-right-circle-fill mx-1"></i>
-                                        </a>
                                     </div>
-                                </div>
-                            </div>
+                                </form>
 
+
+                                <?php
+                                if (!empty($top_leave_employees)) {
+
+                                    echo "<table class='table table-bordered'>";
+                                    echo "<thead><tr><th>ID Nhân viên</th><th> Họ và tên </th><th>Số ngày nghỉ</th></tr></thead>";
+                                    echo "<tbody>";
+                                    foreach ($top_leave_employees as $employee) {
+                                        $query = "SELECT ten FROM nhan_vien_tbl WHERE id_nv = " . $employee['id_nv'];
+                                        $result = $sql_connect->query($query);
+                                        $row = $result->fetch_assoc();
+                                        $employee['ten'] = $row['ten'];
+                                        echo "<tr><td>" . $employee['id_nv'] . "</td>  <td> " . $employee['ten'] . "</td><td>" . $employee['total_leave_days'] . "</td></tr>";
+                                    }
+                                    echo "</tbody>";
+                                    echo "</table>";
+                                } else {
+                                    echo "<p>Không có dữ liệu.</p>";
+                                }
+                                ?>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                    <div class="col-4 pd-3" style="background-color: #7AB2B2">
+                        <div class="row">
+                            <h5 class="text-center mt-3"><strong> Top 5 nhân viên lương cao nhất</strong></h5>
+                        </div>
+                        <div class="row ">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Họ và tên</th>
+                                        <th>Chức vụ</th>
+                                        <th>Lương</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $query = "select * from luong_tbl inner join nhan_vien_tbl on luong_tbl.id_nv=nhan_vien_tbl.id_nv join chuc_vu_tbl on nhan_vien_tbl.id_chuc_vu=chuc_vu_tbl.id_cv order by tong_luong desc limit 5";
+                                    $result = $sql_connect->query($query);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<tr><td>" . $row['ten'] . "</td>  <td> " . $row['chuc_vu'] . "</td><td>" . $row['tong_luong'] . "</td></tr>";
+                                        }
+                                    } else {
+                                        echo "<p>Không có dữ liệu.</p>";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-4 pd-3" style="background-color: #007F73">
+                        <div class="row">
+                            <h5 class="text-center mt-3"><strong> Top 5 vị trí nhiều nhân viên nhất</strong></h5>
+                        </div>
+                        <div class="row ">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Chức vụ</th>
+                                        <th>Số lượng nhân viên</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $query = "select count(id_nv) as soluong, chuc_vu_tbl.chuc_vu from nhan_vien_tbl join chuc_vu_tbl on nhan_vien_tbl.id_chuc_vu=chuc_vu_tbl.id_cv group by chuc_vu_tbl.chuc_vu order by soluong desc limit 5";
+                                    $result = $sql_connect->query($query);
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<tr><td>" . $row['chuc_vu'] . "</td>  <td> " . $row['soluong'] . "</td></tr>";
+                                        }
+                                    } else {
+                                        echo "<p>Không có dữ liệu.</p>";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
     </html>
