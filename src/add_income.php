@@ -7,30 +7,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $selected_employee = $_POST['employee'];
         $income_date = $_POST['income_date'];
-        $fine_amount = $_POST['fine_amount'];
+        $total_income = $_POST['salary'];
 
-        $salary_query = "SELECT tong_luong FROM luong_tbl WHERE id_nv = '$selected_employee'";
-        $salary_result = $sql_connect->query($salary_query);
-        if ($salary_result->num_rows > 0) {
-            $salary_row = $salary_result->fetch_assoc();
-            $salary = $salary_row['tong_luong'];
-        }
-
-        // Calculate deduction for leave days
-        $leave_query = "SELECT * FROM nghi_phep_tbl WHERE id_nv = '$selected_employee'";
-        $leave_result = $sql_connect->query($leave_query);
-        if ($leave_result->num_rows > 0) {
-            $leave_row = $leave_result->fetch_assoc();
-            $leave_days = $leave_row['leave_days'];
-            $deduction = ($salary / 30) * $leave_days;
-        }
-
-        $total_income = $salary - $deduction - $fine_amount;
-
-        $insert_query = "INSERT INTO tra_luong_tbl (id_nv, ngay_tra_luong, luong, phat, tru_ngay_phep, tong_luong) 
-                         VALUES ('$selected_employee', '$income_date', '$salary', '$fine_amount', '$deduction', '$total_income')";
+        $insert_query = "INSERT INTO tra_luong_tbl (id, thoi_gian,so_tien,id_nv) 
+                         VALUES (NULL, '$income_date', '$total_income','$selected_employee')";
         $sql_connect->query($insert_query);
-
         header("Location: income.php");
         exit();
     }
@@ -74,33 +55,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                     <input type="number" class="form-control" id="salary" name="salary" value="<?php echo $salary; ?>"
                         required>
                 </div>
-                <div class="mb-3">
-                    <label for="leave_deduction" class="form-label">Tiền nghỉ (trừ):</label>
-                    <input type="number" class="form-control" id="leave_deduction" name="leave_deduction" required>
-                </div>
-                <div class="mb-3">
-                    <label for="fine_amount" class="form-label">Tiền phạt:</label>
-                    <input type="number" class="form-control" id="fine_amount" name="fine_amount" required>
-                </div>
-                <div class="mb-3">
-                    <label for="total_income" class="form-label">Tổng lương:</label>
-                    <input type="number" class="form-control" id="total_income" name="total_income" required readonly>
-                </div>
+                
                 <button type="submit" class="btn btn-primary">Xác nhận</button>
             </form>
         </div>
     </body>
-    <script>
-        function updateSalary(val) {
-            console.log(val);
-            let luong = document.getElementById('salary').value === '' ? 0 : document.getElementById('salary').value;
-            let tien_nghi = document.getElementById('leave_deduction').value === '' ? 0 : document.getElementById('leave_deduction').value;
-            let pc = document.getElementById('fine_amount').value === '' ? 0 : document.getElementById('fine_amount').value;
-            document.getElementById('total_income').value = luong - tien_nghi - pc;
-        }
-
-    </script>
-
     </html>
     <?php
 } else {

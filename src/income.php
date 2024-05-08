@@ -118,7 +118,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Nhân viên</th>
-                                    <th scope="col">Thời gian</th>
+                                    <th scope="col">Thời gian trả lương</th>
                                     <th scope="col">Số tiền</th>
                                 </tr>
                             </thead>
