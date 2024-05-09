@@ -15,15 +15,22 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link rel="icon" href="https://i.imgur.com/HFRT62v.png">
         <style>
             .profile {
+                margin-top: 20px;
                 border-radius: 10% !important;
-                width: 300px;
-                height: 450px;
+                width: 80%;
+                height: auto;
+                max-width: 100%;
+                max-height: 100%;
             }
+
 
             .profile:hover {
                 transform: translateX(20px);
                 transition: ease-in-out 1s;
+                border-radius: 5% !important;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+
             }
         </style>
         <title>Profile </title>
@@ -78,30 +85,46 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                 </div>
             </nav>
             <div class="row mt-5 justify-content-center">
-                <div class="col-md-6 profile-info" style="text-align: center">
-                    <div class="card card-registration">
-                        <br>
-                        <h2>Thông tin tài khoản</h2>
-                        <hr>
-                        <br>
-                        <h4>Tài khoản: <?php echo $_SESSION['username']; ?></h4>
-                        <h4>Loại người dùng: <?php if ($_SESSION['user_type'] == 1) {
-                            echo "Admin";
-                        } else {
-                            echo "Staff";
-                        }
-                        ?></h4>
-                        <br>
-                        <h4>
-                            <p style="font-size: 18px;font-weight: bold">Xin chào, mình là Đào Duy Thông.</p>
-                            <p style="font-size: 18px;font-weight: bold">Học sinh viên năm 3 ngành CNTT tại PTIT.</p>
-                        </h4>
+                <div class="col-md-8 profile-info" style="text-align: center">
+                    <div class="row" style="margin-top: 50px !important;margin-left: 50px">
+                        <div class="card card-registration">
+                            <br>
+                            <h2>Thông tin tài khoản</h2>
+                            <hr>
+                            <br>
+                            <?php
+                            require_once ('connect.php');
+                            $sql = "SELECT * FROM login_tbl WHERE id_login=1";
+                            $result = $sql_connect->query($sql);
+                            $row = $result->fetch_assoc();
+                            ?>
+                            <h4>Tài khoản: <?php echo $row['username']; ?></h4>
+                            <h4>Mật khẩu: <?php echo $row['password']; ?></h4>
+                            <h4>Loại người dùng: <?php if ($row['user_type'] == 1) {
+                                echo "Admin";
+                            } else {
+                                echo "Staff";
+                            }
+                            ?></h4>
+                            <br>
+                            <h4>
+                                <p style="font-size: 18px;font-weight: bold">Xin chào, mình là Đào Duy Thông.</p>
+                                <p style="font-size: 18px;font-weight: bold">Học sinh viên năm 3 ngành CNTT tại PTIT.</p>
+                            </h4>
+
+                        </div>
+
+                    </div>
+                    <div class="row " style="margin-top: 50px !important;margin-left: 50px">
+                        <a class="btn btn-success" href="edit_profile.php" role="button">Sửa thông tin</a>
                     </div>
                 </div>
-                <div class="col-md-6" style="text-align: center; margin-bottom: 50px;">
+                <div class="col-md-4" style="text-align: center; margin-bottom: 50px;">
                     <img src="https://i.imgur.com/qmL3fWb.jpeg" class="profile" alt="Sample image">
                 </div>
             </div>
+
+
 
         </div>
 

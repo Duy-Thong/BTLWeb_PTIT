@@ -1,27 +1,18 @@
 <?php
-
 session_start();
 $error = "";
 
 if (isset($_POST['submit'])) {
-    if (empty($_POST['department_name'])) {
-        $error = "Vui lòng không để trống!";
-    } else {
-        $department_name = $_POST['department_name'];
-        $id = $_GET['id'];
+    $name = $_POST['user_name'];
+    $pass = $_POST['pass_word'];
+    require_once ('connect.php');
+    $query = "UPDATE login_tbl SET username = '$name', password = '$pass' WHERE id_login =1";
+    $sql_connect->query($query);
 
-        require_once ('connect.php');
+    header("Location: profile.php");
+    exit();
 
-        $query = "UPDATE chuc_vu_tbl SET chuc_vu ='$department_name' WHERE id_cv = $id";
-
-        $sql_connect->query($query);
-
-        header("Location: department.php");
-        exit();
-    }
 }
-
-
 if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['logged_in']) {
     ?>
     <!DOCTYPE html>
@@ -34,12 +25,24 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" href="https://i.imgur.com/HFRT62v.png">
-        <title>Edit Department</title>
+        <style>
+            .profile {
+                border-radius: 10% !important;
+                width: 300px;
+                height: 450px;
+            }
+
+            .profile:hover {
+                transform: translateX(20px);
+                transition: ease-in-out 1s;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            }
+        </style>
+        <title>Profile </title>
     </head>
 
     <body class="body">
         <div class="container">
-
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="home.php">Hệ thống quản lý nhân viên</a>
@@ -68,7 +71,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 <a class="nav-link" href="income.php">Phiếu lương</a>
                             </li>
                         </ul>
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,40 +89,40 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                     </div>
                 </div>
             </nav>
-
-            <div class="col py-3">
-                <h1 class="titlepage">Sửa Chức Vụ</h1>
-
-                <hr style="border: 2px solid blue">
+            <div class="row mt-5 justify-content-center">
+                <h1 class="titlepage">Sửa Thông tin</h1>
+                <hr>
                 <br>
-
-                <div class="card">
-                    <div class="card-body">
-                        <form method="post">
-                            <label class="form-label">Tên Chức Vụ</label>
-                            <input class="form-control form-control-lg" type="text" name="department_name"
-                                placeholder="Tên chức vụ">
-                            <span class="error">* <?php echo $error ?></span>
-                            <br>
-                            <input type="submit" name="submit" class="btn btn-lg btn-success float-end"
-                                value="Cập nhật"></input>
-                        </form>
-                    </div>
+                <div class="card card-registration">
+                    <form method="post">
+                        <label class="form-label">Tên người dùng</label>
+                        <input class="form-control form-control-lg" type="text" name="user_name"
+                            placeholder="Nhập tên người dùng">
+                        <br>
+                        <label class="form-label">Mật khẩu mới</label>
+                        <input class="form-control form-control-lg" type="password" name="pass_word"
+                            placeholder="Nhập mật khẩu">
+                        <br>
+                        <input type="submit" name="submit" class="btn btn-lg btn-success" value="Cập nhật"></input>
+                    </form>
                 </div>
             </div>
 
         </div>
-        </div>
+
+
+
         </div>
 
-        </ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-        </script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
     </html>
     <?php
 } else {
-    header("Location: error.html");
+    header("Location: login.php");
     exit();
 }
 ?>
