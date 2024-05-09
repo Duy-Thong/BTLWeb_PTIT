@@ -143,22 +143,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 ?>
 
                             </tbody>
-
-                            <script>
-                                $(document).ready(function () {
-                                    new DataTable('#staff_table', {
-                                        language: {
-                                            info: 'Trang _PAGE_/_PAGES_',
-                                            infoEmpty: 'Không có dữ liệu',
-                                            infoFiltered: '(Lọc từ _MAX_ item)',
-                                            lengthMenu: 'Hiển thị _MENU_ item / trang',
-                                            zeroRecords: 'Không có item tương ứng',
-                                            search: 'Tìm kiếm'
-                                        }
-                                    });
-                                });
-                            </script>
-
                         </table>
                     </div>
                 </div>

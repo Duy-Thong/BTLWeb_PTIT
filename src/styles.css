@@ -98,15 +98,22 @@
     margin-top: 20px;
     border-radius: 0.25rem;
     color: white;
-    opacity: 0.9;
-
-}
-
-.col-6 {
-    border-radius: 0.5rem;
     opacity: 0.85;
-    color: aliceblue;
+
 }
+
+.col-4:hover {
+    opacity: 1;
+
+}
+
+/* Lựa chọn con của .col-4 */
+.col-4:hover>* {
+    opacity: 1;
+    transform: scale(1.05);
+    transition: ease-in-out 0.5s;
+}
+
 
 .btn-success {
     background-color: #0D9276;
@@ -130,6 +137,7 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
 
 .table {
     background-color: rgb(1, 1, 1, 0.2) !important;
