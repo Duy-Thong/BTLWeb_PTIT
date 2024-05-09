@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="\assets\styles.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Login Page</title>
 </head>
-<body>
-    <div class="login_form background mt-5 mx-auto ">
+<body class="body">
+    <div class="login_form mt-5 mx-auto ">
         <section class="vh-100">
             <div class="container h-custom ">
                 <div class="row">
@@ -28,7 +28,7 @@
                 <div class="center row d-flex justify-content-center align-items-center h-100">
     
                     <div class="col-md-9 col-lg-6 col-xl-5">
-                        <img src="https://static.vecteezy.com/system/resources/previews/005/879/539/non_2x/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scene-free-vector.jpg"
+                        <img src="https://i.imgur.com/SYp0zVh.png"
                         class="img-fluid" alt="Sample image">
                     </div>
 
@@ -62,7 +62,7 @@
                                         Ghi nhớ tài khoản
                                     </label>
                                 </div>
-                                <a href="forget_password.php" class="text-body">Quên mật khẩu?</a>
+                                <a href="forget_password.php" class="text-body" >Quên mật khẩu?</a>
                             </div>
 
                             <div class="text-center text-lg-start mt-4 pt-2">

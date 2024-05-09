@@ -75,9 +75,9 @@
     background-color: #333;
     /* Màu nền của navbar */
     color: #fff;
-    font-size: large!important;
+    font-size: large;
     /* Màu chữ */
-    font-weight: bold!important;
+    font-weight: bold!;
 }
 
 .navbar-brand {

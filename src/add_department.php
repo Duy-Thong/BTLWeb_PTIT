@@ -83,7 +83,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                 </div>
             </nav>
 
-            <div class="col py-3 main">
+            <div class="col py-3">
                 <h1>Thêm Chức Vụ</h1>
 
                 <hr style="border: 2px solid blue">

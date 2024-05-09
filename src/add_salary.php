@@ -17,13 +17,11 @@ function test_input($data)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["id_nv"])) {
+    if (empty($_POST["select_staff"])) {
         $idErr = "Chưa nhập ID nhân viên";
     } else {
-        $id_nv = test_input($_POST["id_nv"]);
-        if (!preg_match("/^[0-9' ]*$/", $id_nv)) {
-            $idErr = "Chỉ bao gồm chữ số";
-        }
+        $id_nv = test_input($_POST["select_staff"]);
+
     }
 
     if (empty($_POST["date"])) {
@@ -63,7 +61,7 @@ function checkErr($idErr, $cbErr, $pcErr)
 
 if (isset($_POST['submit'])) {
     if (!empty($id_nv) && !empty($date) && !empty($luong_co_ban) && !empty($phu_cap) && !empty($tong_luong) && checkErr($idErr, $cbErr, $pcErr)) {
-        $query = "INSERT INTO luong_tbl(id_luong, id_nhanvien, luong_co_ban, phu_cap, tong_luong, ngay_them, ngay_cap_nhat) 
+        $query = "INSERT INTO luong_tbl(id_luong, id_nv, luong_co_ban, phu_cap, tong_luong, ngay_them, ngay_cap_nhat) 
             VALUES (NULL,'$id_nv','$luong_co_ban','$phu_cap','$tong_luong',NULL,'$date')";
 
         $sql_connect->query($query);
@@ -85,16 +83,16 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.datatables.net/v/bs5/dt-2.0.5/datatables.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="\assets\styles.css">
+        <link rel="stylesheet" href="styles.css">
         <style>
             .navbar-nav {
                 margin-left: auto;
             }
         </style>
-        <title>Home Page</title>
+        <title>Add Salary</title>
     </head>
 
-    <body>
+    <body class="body">
 
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -128,6 +126,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                             <li class="nav-item">
                                 <a class="nav-link" href="leave.php">Nghỉ Phép</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="income.php">Phiếu lương</a>
+                            </li>
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
@@ -136,8 +137,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -151,25 +151,31 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
             </nav>
 
             <div class="col py-3">
-                <h1>Lương</h1>
-
+                <h1 class="titlepage">Lương</h1>
                 <hr style="border: 2px solid blue">
                 <br><br>
-
                 <div class="card card-registration">
-
                     <div class="card-body">
-
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Thêm bảng lương mới</h3>
                         <form method="post">
-
                             <div class="row">
                                 <div class="col-md-6 mb-4">
-
                                     <div class="form-outline">
-                                        <label class="form-label" for="firstName">ID Nhân Viên</label> <span class="error">
-                                            * <?php echo $idErr; ?></span>
-                                        <input type="text" name="id_nv" class="form-control form-control-lg" />
+                                        <label class="form-label select-label">Chọn nhân viên</label>
+                                        <span class="error"> * </span>
+                                        <select class="form-select form-control-lg" name="select_staff">
+                                            <option value="" disabled selected>Chọn nhân viên</option>
+                                            <?php
+                                            $query1 = "SELECT * FROM nhan_vien_tbl";
+                                            $department_arr = $sql_connect->query($query1);
+                                            while ($row = $department_arr->fetch_assoc()) {
+                                                ?>
+                                                <option value="<?php echo $row['id_nv']; ?>"><?php echo $row['ten']; ?>
+                                                </option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
 
                                 </div>

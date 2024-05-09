@@ -11,7 +11,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="\assets\styles.css">
+        <link rel="stylesheet" href="styles.css">
         <style>
             .navbar-nav {
                 margin-left: auto;
@@ -24,7 +24,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <title>Profile </title>
     </head>
 
-    <body>
+    <body class="body">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
@@ -72,9 +72,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                     </div>
                 </div>
             </nav>
+            <div class="row">
+                <h1 class="titlepage text-center" style="color: red"> <php echo $_SESSION['username'] ?></php> I love PTIT </h1>
+                <img src="https://i.imgur.com/P4ZD9xO.jpeg" class="img" alt="Sample image">
+            </div>
         </div>
-        
-    
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 

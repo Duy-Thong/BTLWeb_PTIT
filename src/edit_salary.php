@@ -9,6 +9,8 @@ $id_nv = $date = "";
 $luong_co_ban = $phu_cap = $tong_luong = 0;
 $idErr = $cbErr = $pcErr = "";
 
+
+
 $query = "SELECT * FROM luong_tbl WHERE id_luong=$id";
 $salary_result = $sql_connect->query($query);
 
@@ -38,11 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $idErr = "Chỉ bao gồm chữ số";
         }
     }
-
     if (empty($_POST["date"])) {
-        $date = "";
+        $date = getdate();
     } else {
-        $date = test_input($_POST["date"]);
+        $date = getdate();
     }
 
     if (empty($_POST["luong_co_ban"])) {
@@ -75,7 +76,7 @@ function checkErr($idErr, $cbErr, $pcErr)
 }
 
 if (isset($_POST['submit'])) {
-    if (!empty($id_nv) && !empty($date) && !empty($luong_co_ban) && !empty($phu_cap) && !empty($tong_luong) && checkErr($idErr, $cbErr, $pcErr)) {
+    if (!empty($id_nv)&& !empty($luong_co_ban) && !empty($phu_cap) && !empty($tong_luong) && checkErr($idErr, $cbErr, $pcErr)) {
         $query = "UPDATE luong_tbl 
             SET luong_co_ban='$luong_co_ban',phu_cap='$phu_cap',tong_luong='$tong_luong',ngay_cap_nhat='$date' WHERE id_luong=$id";
 
@@ -98,11 +99,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.datatables.net/v/bs5/dt-2.0.5/datatables.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="\assets\styles.css">
-        <title>Home Page</title>
+        <link rel="stylesheet" href="styles.css">
+        <title>Edit Salary</title>
     </head>
 
-    <body>
+    <body class="body">
 
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -149,7 +150,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    
+
                                     <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -163,7 +164,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
             </nav>
 
             <div class="col py-3">
-                <h1>Lương</h1>
+                <h1 class="titlepage">Lương</h1>
 
                 <hr style="border: 2px solid blue">
                 <br><br>
@@ -178,19 +179,16 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                             <div class="row">
                                 <div class="col-md-6 mb-4">
 
-                                    <div class="form-outline">
-                                        <label class="form-label" for="firstName">ID Nhân Viên</label> <span class="error">
-                                            * <?php echo $idErr; ?></span>
-                                        <input type="text" name="id_nv" class="form-control form-control-lg"
-                                            value="<?php echo $id_nv ?>" />
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="firstName">ID Nhân Viên</label> <span class="error"> * <?php echo $idErr; ?></span>
+                                        <input type="text" name="id_nv" class="form-control form-control-lg" value="<?php echo $id_nv ?>" />
                                     </div>
-
+                                
                                 </div>
                                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                                     <div class="form-outline datepicker w-100">
-                                        <label for="birthdayDate" class="form-label">Ngày Cập Nhật</label> <span
-                                            class="error"> * </span>
+                                        <label for="birthdayDate" class="form-label">Ngày Cập Nhật</label> 
                                         <input type="date" class="form-control form-control-lg" name="date" />
 
                                     </div>

@@ -14,7 +14,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.datatables.net/v/bs5/dt-2.0.5/datatables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
-        <title>Home Page</title>
+        <title>Salary</title>
     </head>
 
     <body class="body">
@@ -75,7 +75,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
             </nav>
 
             <div class="col py-3">
-                <h1>Bảng lương nhân viên</h1>
+                <h1 class="titlepage">Bảng lương nhân viên</h1>
 
                 <hr style="border: 2px solid blue">
                 <br>
@@ -109,7 +109,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 while ($row = $staff_result->fetch_assoc()) {
                                     ?>
                                     <tr>
-                                        <th scope="row"><?php echo $row['id_luong']; ?></th>
+                                        <th scope="row"><?php echo $row['id_nv']; ?></th>
                                         <td><img src="<?php echo $row['anh']; ?>" alt="user_avatar" height="50px" width="50px">
                                         </td>
                                         <td><?php echo $row['ten']; ?></td>
@@ -117,10 +117,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                         <td><?php echo $row['phu_cap']; ?>đ</td>
                                         <td><?php echo $row['tong_luong']; ?>đ</td>
                                         <td>
-                                            <a href="edit_salary.php?id=<?php echo $row['id_nv']; ?>"
+                                            <a href="edit_salary.php?id=<?php echo $row['id_luong']; ?>"
                                                 class="btn btn-success px-4">Sửa</a>
                                             <a onclick="return confirm('Bạn có chắc muốn xoá bảng lương này không?');"
-                                                href="delete_staff.php?id=<?php echo $row['id_nv']; ?>"
+                                                href="delete_salary.php?id=<?php echo $row['id_luong']; ?>"
                                                 class="btn btn-danger px-4">Xoá</a>
                                         </td>
                                     </tr>

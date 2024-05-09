@@ -14,8 +14,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.datatables.net/v/bs5/dt-2.0.5/datatables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
-        
-        <title>Home Page</title>
+
+        <title>Staff</title>
     </head>
 
     <body class="body">
@@ -77,7 +77,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
             </nav>
 
             <div class="col py-3">
-                <h1>Nhân Viên</h1>
+                <h1 class="titlepage">Nhân Viên</h1>
 
                 <hr style="border: 2px solid blue">
                 <br>
@@ -129,8 +129,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                         <td>
                                             <a href="edit_staff.php?id=<?php echo $row['id_nv']; ?>"
                                                 class="btn btn-success px-4">Sửa</a>
-                                            <a onclick="return confirm('Bạn có chắc muốn xoá nhân viên này không?');"
-                                                href="delete_staff.php?id=<?php echo $row['id_nv']; ?>"
+                                            <a href="delete_staff.php?id=<?php echo $row['id_nv']; ?>"
                                                 class="btn btn-danger px-4">Xoá</a>
                                         </td>
                                     </tr>

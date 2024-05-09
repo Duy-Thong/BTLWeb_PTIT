@@ -75,7 +75,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
             </nav>
 
             <div class="col py-3">
-                <h1>Chức vụ</h1>
+                <h1 class="titlepage">Chức vụ</h1>
 
                 <hr style="border: 2px solid blue">
                 <br>

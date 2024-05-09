@@ -92,13 +92,32 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
 
             <div class="col py-3">
                 <div class="row ">
-                    <h1>Trang chủ</h1>
-
+                    <h1 class="titlepage">Trang chủ</h1>
                     <br><br>
                 </div>
                 <hr style="border: 2px solid blue">
+                <div class="row mt-5 ml-5" style="justify-content: center">
+                    <div class=" col-4 pd-3" style="background-color: #6DC5D1">
+                        <?php
+                        $query = "SELECT COUNT(id_nv) AS total_employees FROM nhan_vien_tbl";
+                        $result = $sql_connect->query($query);
+                        $row = $result->fetch_assoc();
+                        $total_employees = $row['total_employees'];
+                        ?>
+                        <h4> Số lượng nhân viên <?php echo $total_employees ?></h4>
+                    </div>
+                    <div class=" col-4 pd-3 " style="background-color: #FEB941">
+                        <?php
+                        $query = "SELECT SUM(so_tien) AS total_salary FROM tra_luong_tbl";
+                        $result = $sql_connect->query($query);
+                        $row = $result->fetch_assoc();
+                        $total_salary = $row['total_salary'];
+                        ?>
+                        <h4> Tổng số tiền lương <?php echo $total_salary ?></h4>
+                    </div>
+                </div>
                 <div class="row mt-5 ml-5 ">
-                    <div class=" col-4 pd-3" style="background-color: #496989">
+                    <div class=" col-4 pd-3" style="background-color: #007F73">
                         <div class="">
                             <form method="POST">
                                 <div class="row mb-3">
@@ -138,7 +157,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 <?php
                                 if (!empty($top_leave_employees)) {
 
-                                    echo "<table class='table table-bordered'>";
+                                    echo "<table class='table table-bordered table-transparent'>";
                                     echo "<thead><tr><th>ID Nhân viên</th><th> Họ và tên </th><th>Số ngày nghỉ</th></tr></thead>";
                                     echo "<tbody>";
                                     foreach ($top_leave_employees as $employee) {
@@ -210,14 +229,19 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     } else {
                                         echo "<p>Không có dữ liệu.</p>";
                                     }
+
                                     ?>
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
+                </div>
 
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            </div>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
     </html>

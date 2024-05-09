@@ -38,9 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nameErr = "Chưa nhập tên";
     } else {
         $name = test_input($_POST["name"]);
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
-            $nameErr = "Chỉ bao gồm chữ cái và khoảng trắng";
-        }
+
     }
 
     if (empty($_POST["email"])) {
@@ -95,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["avatar"])) {
         $avatar = "https://cdn-icons-png.flaticon.com/512/3541/3541871.png";
     } else {
-        $avatar = $_POST["avatar"];
+        $avatar = "https://cdn-icons-png.flaticon.com/512/3541/3541871.png";
     }
 }
 
@@ -132,16 +130,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.datatables.net/v/bs5/dt-2.0.5/datatables.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="\assets\styles.css">
-        <style>
-            .navbar-nav {
-                margin-left: auto;
-            }
-        </style>
-        <title>Home Page</title>
+        <link rel="stylesheet" href="styles.css">
+
+        <title>Edit Staff</title>
     </head>
 
-    <body>
+    <body class="body">
 
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -200,8 +194,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
             </nav>
 
             <div class="col py-3">
-                <h1>Nhân Viên</h1>
-
+                <h1 class="titlepage">Nhân Viên</h1>
                 <hr style="border: 2px solid blue">
                 <br><br>
 
@@ -296,7 +289,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 <div class="col-md-4 mb-4 pb-2">
                                     <label class="form-label select-label">Chức vụ</label> <span class="error"> * </span>
                                     <select class="form-select form-control-lg" name="select_department">
-                                        <option value="" disabled selected>Chọn chức vụ</option>
+                                        <option value="" disabled selected>Chọn chức vụ</option>
                                         <?php
                                         $query1 = "SELECT * FROM chuc_vu_tbl";
                                         $department_arr = $sql_connect->query($query1);

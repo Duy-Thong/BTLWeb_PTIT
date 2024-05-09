@@ -7,17 +7,15 @@
     margin: auto;
 }
 
-.body {
-    background-color: #FDF0D1;
-}
 
-.background {
-    background-color: rgb(39, 37, 37);
+.card-registration {
+    background-color: rgb(1, 1, 1, 0.2) !important;
     color: aliceblue !important;
+    margin-top: 0rem !important;
 }
 
 .text-body {
-    color: aliceblue !important;
+    color: rgb(69, 151, 223) !important;
 }
 
 .topic {
@@ -26,6 +24,7 @@
 
 .h1 {
     text-align: center;
+    color: #124076;
 }
 
 .error {
@@ -45,9 +44,11 @@
 .item-center {
     margin-left: 30%;
 }
+
 .main {
     background-color: rgb(0, 0, 0, 0)
 }
+
 .navbar {
     background-color: #77B0AA;
     color: #fff;
@@ -63,6 +64,10 @@
     font-weight: bold !important;
 }
 
+.navbar-brand:hover {
+    color: #2d1c89;
+}
+
 .navbar-nav {
     margin-right: auto !important;
     margin-left: auto !important;
@@ -70,12 +75,18 @@
 
 .nav-item {
     padding: 0 15px;
+
     /* Khoảng cách giữa các mục menu */
 }
 
 .nav-link {
     color: #fff;
+
     /* Màu chữ cho các mục menu */
+}
+
+.nav-link:hover {
+    color: #D24545;
 }
 
 .container {
@@ -86,8 +97,15 @@
 .col-4 {
     margin-top: 20px;
     border-radius: 0.25rem;
-    color: aliceblue;
+    color: white;
+    opacity: 0.9;
 
+}
+
+.col-6 {
+    border-radius: 0.5rem;
+    opacity: 0.85;
+    color: aliceblue;
 }
 
 .btn-success {
@@ -99,7 +117,51 @@
     background-color: #ce4646;
     color: #fff;
 }
+
 .btn-primary {
     background-color: #4b92df;
-    
+
+}
+
+.body {
+    background-image: url("https://i.imgur.com/ExiWlK8.jpeg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.table {
+    background-color: rgb(1, 1, 1, 0.2) !important;
+    color: aliceblue !important;
+    margin-top: 0rem !important;
+    background-color: transparent !important;
+}
+
+.table-transparent {
+    .table-transparent {
+        background-color: rgba(255, 255, 255, 0.5);
+        /* Chỉnh độ trong suốt ở đây, giá trị 0.5 là một ví dụ */
+    }
+
+}
+
+.table,
+th,
+td {
+    border: 1px solid black;
+}
+
+.th {
+    padding: 5px;
+    text-align: left;
+}
+
+.td {
+    padding: 5px;
+}
+
+.titlepage {
+    /* text-align: center; */
+    color: white;
 }

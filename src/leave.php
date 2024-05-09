@@ -13,7 +13,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="styles.css">
-        <title>Home Page</title>
+        <title>Leave </title>
     </head>
 
     <body class="body">
@@ -67,7 +67,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
             </nav>
 
             <div class="col py-3">
-                <h1> Nghỉ phép </h1>
+                <h1 class="titlepage"> Nghỉ phép </h1>
 
                 <hr style="border: 2px solid blue">
                 <br>
