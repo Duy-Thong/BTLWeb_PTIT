@@ -78,11 +78,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile.php">Thông tin</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                                 </ul>
                             </li>
                         </ul>

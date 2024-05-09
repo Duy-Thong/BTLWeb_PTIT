@@ -17,14 +17,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link rel="icon" href="https://i.imgur.com/HFRT62v.png">
         <title>Department</title>
     </head>
-
     <body class="body">
-        <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="\Datatables\datatables.js"></script>
-        <script src="\Datatables\datatables.min.js"></script>
-        <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js"></script>
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
@@ -62,12 +55,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                    <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile.php">Thông tin</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                                 </ul>
                             </li>
                         </ul>

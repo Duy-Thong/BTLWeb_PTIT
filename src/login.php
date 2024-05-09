@@ -15,7 +15,6 @@
         <section class="vh-100">
             <div class="container h-custom ">
                 <div class="row">
-
                     <p class="h1 text-center">Hệ thống quản lý nhân viên - PTIT IT SOLUTIONS</p>
                     <br>
                     <br>
@@ -24,25 +23,20 @@
                     <br>
                     <br>
                     <br>
-
                 </div>
                 <div class="row">
-
                     <div class="center row d-flex justify-content-center align-items-center h-100">
-
                         <div class="col-md-9 col-lg-6 col-xl-5">
                             <img src="https://i.imgur.com/SYp0zVh.png" class="img-fluid" alt="Sample image">
                         </div>
-
                         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                             <p class="h1">Đăng nhập</p>
 
                             <?php
                             if (isset($_GET['error'])) { ?>
                                 <p class="error"> <?php echo $_GET['error']; ?></p>
-                            <?php
+                                <?php
                             } ?>
-
                             <form method="post">
                                 <!-- Username input -->
                                 <div data-mdb-input-init class="form-outline mb-4">

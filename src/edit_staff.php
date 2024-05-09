@@ -137,13 +137,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
     </head>
 
     <body class="body">
-
-        <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-        <script src="\Datatables\datatables.js"></script>
-        <script src="\Datatables\datatables.min.js"></script>
-        <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js"></script>
-
         <div class="container">
             <!-- Side Bar -->
             <nav class="navbar navbar-expand-lg">
@@ -181,12 +174,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                    <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile.php">Thông tin</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -34,13 +34,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" href="https://i.imgur.com/HFRT62v.png">
-        <title>Home Page</title>
+        <title>Edit Department</title>
     </head>
 
     <body class="body">
         <div class="container">
 
-            <!-- Side Bar -->
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="home.php">Hệ thống quản lý nhân viên</a>
@@ -75,13 +74,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Admin
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                    <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="profile.php">Thông tin</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                                 </ul>
                             </li>
                         </ul>

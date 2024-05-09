@@ -14,12 +14,16 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" href="https://i.imgur.com/HFRT62v.png">
         <style>
-            .navbar-nav {
-                margin-left: auto;
+            .profile {
+                border-radius: 10% !important;
+                width: 300px;
+                height: 450px;
             }
 
-            .container {
-                margin-top: 20px;
+            .profile:hover {
+                transform: translateX(20px);
+                transition: ease-in-out 1s;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             }
         </style>
         <title>Profile </title>
@@ -62,23 +66,45 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile.php">Thông tin</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <php class="row">
-                <h1 class="titlepage text-center" style="color: red"> I'm <?php echo $_SESSION['username']; ?> and I love
-                    PTIT </h1>
-                <img src="https://i.imgur.com/P4ZD9xO.jpeg" class="img" alt="Sample image">
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-6 profile-info" style="text-align: center">
+                    <div class="card card-registration">
+                        <br>
+                        <h2>Thông tin tài khoản</h2>
+                        <hr>
+                        <br>
+                        <h4>Tài khoản: <?php echo $_SESSION['username']; ?></h4>
+                        <h4>Loại người dùng: <?php if ($_SESSION['user_type'] == 1) {
+                            echo "Admin";
+                        } else {
+                            echo "Staff";
+                        }
+                        ?></h4>
+                        <br>
+                        <h4>
+                            <p style="font-size: 18px;font-weight: bold">Xin chào, mình là Đào Duy Thông.</p>
+                            <p style="font-size: 18px;font-weight: bold">Học sinh viên năm 3 ngành CNTT tại PTIT.</p>
+                        </h4>
+                    </div>
+                </div>
+                <div class="col-md-6" style="text-align: center; margin-bottom: 50px;">
+                    <img src="https://i.imgur.com/qmL3fWb.jpeg" class="profile" alt="Sample image">
+                </div>
+            </div>
+
         </div>
-        </div>
+
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

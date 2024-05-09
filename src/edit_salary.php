@@ -76,7 +76,7 @@ function checkErr($idErr, $cbErr, $pcErr)
 }
 
 if (isset($_POST['submit'])) {
-    if (!empty($id_nv)&& !empty($luong_co_ban) && !empty($phu_cap) && !empty($tong_luong) && checkErr($idErr, $cbErr, $pcErr)) {
+    if (!empty($id_nv) && !empty($luong_co_ban) && !empty($phu_cap) && !empty($tong_luong) && checkErr($idErr, $cbErr, $pcErr)) {
         $query = "UPDATE luong_tbl 
             SET luong_co_ban='$luong_co_ban',phu_cap='$phu_cap',tong_luong='$tong_luong',ngay_cap_nhat='$date' WHERE id_luong=$id";
 
@@ -105,14 +105,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
     </head>
 
     <body class="body">
-
-        <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-        <script src="\Datatables\datatables.js"></script>
-        <script src="\Datatables\datatables.min.js"></script>
-        <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js"></script>
-
-
         <!-- Side Bar -->
         <div class="container">
             <!-- Side Bar -->
@@ -151,12 +143,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                     Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                    <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile.php">Thông tin</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -166,30 +157,25 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
 
             <div class="col py-3">
                 <h1 class="titlepage">Lương</h1>
-
                 <hr style="border: 2px solid blue">
                 <br><br>
-
                 <div class="card card-registration">
-
                     <div class="card-body">
-
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Sửa bảng lương</h3>
                         <form method="post">
-
                             <div class="row">
                                 <div class="col-md-6 mb-4">
-
-                                                <div class="form-outline">
-                                                    <label class="form-label" for="firstName">ID Nhân Viên</label> <span class="error"> * <?php echo $idErr; ?></span>
-                                        <input type="text" name="id_nv" class="form-control form-control-lg" value="<?php echo $id_nv ?>" />
+                                    <div class="form-outline">
+                                        <label class="form-label" for="firstName">ID Nhân Viên</label> <span class="error">
+                                            * <?php echo $idErr; ?></span>
+                                        <input type="text" name="id_nv" class="form-control form-control-lg"
+                                            value="<?php echo $id_nv ?>" />
                                     </div>
-                                
                                 </div>
                                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                                     <div class="form-outline datepicker w-100">
-                                        <label for="birthdayDate" class="form-label">Ngày Cập Nhật</label> 
+                                        <label for="birthdayDate" class="form-label">Ngày Cập Nhật</label>
                                         <input type="date" class="form-control form-control-lg" name="date" />
 
                                     </div>
