@@ -12,6 +12,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="https://i.imgur.com/HFRT62v.png">
         <style>
             .navbar-nav {
                 margin-left: auto;
@@ -73,7 +74,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                 </div>
             </nav>
             <php class="row">
-                <h1 class="titlepage text-center" style="color: red"> I'm <?php echo $_SESSION['username']; ?> and I love PTIT </h1>
+                <h1 class="titlepage text-center" style="color: red"> I'm <?php echo $_SESSION['username']; ?> and I love
+                    PTIT </h1>
                 <img src="https://i.imgur.com/P4ZD9xO.jpeg" class="img" alt="Sample image">
         </div>
         </div>

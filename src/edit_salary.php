@@ -100,6 +100,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.datatables.net/v/bs5/dt-2.0.5/datatables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="https://i.imgur.com/HFRT62v.png">
         <title>Edit Salary</title>
     </head>
 
