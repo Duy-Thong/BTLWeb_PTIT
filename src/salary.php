@@ -103,7 +103,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 <?php
                                 require_once ('connect.php');
 
-                                $query1 = "select * from luong_tbl inner join nhan_vien_tbl on luong_tbl.id_nv=nhan_vien_tbl.id_nv";
+                                $query1 = "select * from luong_tbl inner join nhan_vien_tbl on luong_tbl.id_nv=nhan_vien_tbl.id_nv order by tong_luong desc";
                                 $staff_result = $sql_connect->query($query1);
 
                                 while ($row = $staff_result->fetch_assoc()) {

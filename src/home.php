@@ -104,7 +104,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                         $row = $result->fetch_assoc();
                         $total_employees = $row['total_employees'];
                         ?>
-                        <h4> Số lượng nhân viên <?php echo $total_employees ?></h4>
+                        <h4> Số lượng nhân viên : <?php echo $total_employees ?></h4>
                     </div>
                     <div class=" col-4 pd-3 " style="background-color: #FEB941">
                         <?php
@@ -113,7 +113,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                         $row = $result->fetch_assoc();
                         $total_salary = $row['total_salary'];
                         ?>
-                        <h4> Tổng số tiền lương <?php echo $total_salary ?></h4>
+                        <h4> Tổng số tiền lương : <?php echo $total_salary ?> vnđ</h4>
                     </div>
                 </div>
                 <div class="row mt-5 ml-5 ">
