@@ -75,37 +75,47 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                     </div>
                 </div>
             </nav>
-            <h1 class="titlepage">Trả lương cho nhân viên</h1>
-            <form method="POST">
-                <div class="mb-3">
-                    <label for="employee" class="form-label">Chọn nhân viên:</label>
-                    <select class="form-select" id="employee" name="employee" required>
-                        <option value="" disabled selected>Chọn nhân viên</option>
-                        <?php
-                        $employee_query = "SELECT * FROM nhan_vien_tbl";
-                        $employee_result = $sql_connect->query($employee_query);
-                        if ($employee_result->num_rows > 0) {
-                            while ($row = $employee_result->fetch_assoc()) {
-                                echo "<option value='" . $row['id_nv'] . "'>" . $row['ten'] . "</option>";
-                            }
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="income_date" class="form-label">Ngày trả lương:</label>
-                    <input type="date" class="form-control" id="income_date" name="income_date" required>
-                </div>
-                <div class="mb-3">
-                    <label for="salary" class="form-label">Tiền lương:</label>
 
-                    <input type="number" class="form-control" id="salary" name="salary" value="<?php echo $salary; ?>"
-                        required>
-                </div>
+            <div class="col py-3">
+                <h1 class="titlepage">Trả lương cho nhân viên</h1>
+                <form method="POST">
+                    <div class="mb-3">
+                        <hr style="border: 2px solid blue">
+                        <br><br>
+                        <div class="card card-registration">
+                            <div class="card-body">
+                                <div class="row">
+                                    <label for="employee" class="form-label">Chọn nhân viên:</label>
+                                    <select class="form-select" id="employee" name="employee" required>
+                                        <option value="" disabled selected>Chọn nhân viên</option>
+                                        <?php
+                                        $employee_query = "SELECT * FROM nhan_vien_tbl";
+                                        $employee_result = $sql_connect->query($employee_query);
+                                        if ($employee_result->num_rows > 0) {
+                                            while ($row = $employee_result->fetch_assoc()) {
+                                                echo "<option value='" . $row['id_nv'] . "'>" . $row['ten'] . "</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="income_date" class="form-label">Ngày trả lương:</label>
+                                    <input type="date" class="form-control" id="income_date" name="income_date" required>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="salary" class="form-label">Tiền lương:</label>
 
-                <button type="submit" class="btn btn-primary">Xác nhận</button>
+                                    <input type="number" class="form-control" id="salary" name="salary"
+                                        value="<?php echo $salary; ?>" required>
+                                </div>
 
-            </form>
+                                <button type="submit" class="btn btn-primary">Xác nhận</button>
+
+                </form>
+            </div>
+        </div>
+
         </div>
     </body>
 
