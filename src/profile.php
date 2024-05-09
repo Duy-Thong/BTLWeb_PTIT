@@ -72,10 +72,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                     </div>
                 </div>
             </nav>
-            <div class="row">
-                <h1 class="titlepage text-center" style="color: red"> <php echo $_SESSION['username'] ?></php> I love PTIT </h1>
+            <php class="row">
+                <h1 class="titlepage text-center" style="color: red"> I'm <?php echo $_SESSION['username']; ?> and I love PTIT </h1>
                 <img src="https://i.imgur.com/P4ZD9xO.jpeg" class="img" alt="Sample image">
-            </div>
+        </div>
         </div>
 
 
