@@ -306,7 +306,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 </div>
                                 <div class="col-md-4 mb-4 pb-2">
                                     <label class="form-label" for="customFile">Link Avatar</label>
-                                    <input type="text" class="form-control" name="avatar" />
+                                    <input type="text" class="form-control" name="avatar" value="<?php echo $avatar ?>" />
 
                                 </div>
                             </div>
