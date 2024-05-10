@@ -71,12 +71,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $join = test_input($_POST["join"]);
     }
 
-    if (empty($_POST["avatar"])) {
+    if (empty($_POST["avatar1"])) {
         $avatar = "https://cdn-icons-png.flaticon.com/512/3541/3541871.png";
     } else {
-        $avatar = test_input($_POST["avatar"]);
+        $avatar = test_input($_POST["avatar1"]);
     }
-
 }
 
 function checkErr($nameErr, $emailErr, $genderErr, $addressErr, $phoneErr)
@@ -92,7 +91,7 @@ if (isset($_POST['submit'])) {
     if (!empty($name) && !empty($email) && !empty($avatar) && !empty($birth) && !empty($gender) && !empty($address) && !empty($phone) && !empty($department) && !empty($join) && checkErr($nameErr, $emailErr, $genderErr, $addressErr, $phoneErr)) {
         require_once ('connect.php');
         $query = "INSERT INTO nhan_vien_tbl(id_nv, ten, ngay_sinh, gioi_tinh, so_dien_thoai, email, dia_chi, id_chuc_vu, ngay_vao_lam, ngay_them, anh, ngay_cap_nhat) 
-            VALUES (NULL,'$name','$birth','$gender','$phone','$email','$address','$department','$join',NULL,'https://cdn-icons-png.flaticon.com/512/3541/3541871.png', '$join');";
+            VALUES (NULL,'$name','$birth','$gender','$phone','$email','$address','$department','$join',NULL,'$avatar', '$join');";
         $sql_connect->query($query);
 
         header("Location: staff.php");
@@ -287,29 +286,19 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 </div>
                                 <div class="col-md-4 mb-4 pb-2">
                                     <label class="form-label" for="customFile">Link Avatar</label>
-                                    <input type="text" class="form-control" name="avatar" />
+                                    <input type="text" class="form-control" name="avatar1" />
                                 </div>
 
                             </div>
-
                             <div class="mt-4 pt-2">
                                 <input class="btn btn-success btn-lg float-end" type="submit" name="submit"
                                     value="Thêm mới" />
                             </div>
-
                         </form>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
-        </div>
-        </div>
-        </div>
-        </div>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
