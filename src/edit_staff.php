@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["avatar"])) {
         $avatar = "https://cdn-icons-png.flaticon.com/512/3541/3541871.png";
     } else {
-        $avatar = "https://cdn-icons-png.flaticon.com/512/3541/3541871.png";
+        $avatar = test_input($_POST["avatar"]);
     }
 }
 
@@ -305,8 +305,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
 
                                 </div>
                                 <div class="col-md-4 mb-4 pb-2">
-                                    <label class="form-label" for="customFile">Avatar</label>
-                                    <input type="file" class="form-control" name="avatar" />
+                                    <label class="form-label" for="customFile">Link Avatar</label>
+                                    <input type="text" class="form-control" name="avatar" />
 
                                 </div>
                             </div>

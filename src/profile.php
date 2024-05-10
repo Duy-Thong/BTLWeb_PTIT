@@ -99,18 +99,14 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                             $row = $result->fetch_assoc();
                             ?>
                             <h4>Tài khoản: <?php echo $row['username']; ?></h4>
-                            <h4>Mật khẩu: <?php echo $row['password']; ?></h4>
                             <h4>Loại người dùng: <?php if ($row['user_type'] == 1) {
-                                echo "Admin";
+                                echo "Quản trị viên";
                             } else {
-                                echo "Staff";
+                                echo "Nhân viên";
                             }
                             ?></h4>
                             <br>
-                            <h4>
-                                <p style="font-size: 18px;font-weight: bold">Xin chào, mình là Đào Duy Thông.</p>
-                                <p style="font-size: 18px;font-weight: bold">Học sinh viên năm 3 ngành CNTT tại PTIT.</p>
-                            </h4>
+
 
                         </div>
 

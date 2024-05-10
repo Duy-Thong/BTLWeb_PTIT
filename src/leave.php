@@ -76,7 +76,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                         <table id="leave_table" class="table table-striped table-hover">
                             <thead style="position: sticky; top: 0; ">
                                 <tr>
-                                    <th scope="col">Id</th>
+                                    <th scope="col">ID</th>
                                     <th scope="col">Họ và tên </th>
                                     <th scope="col">Lí do</th>
                                     <th scope="col">Chi tiết</th>
@@ -92,13 +92,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 <?php
                                 require_once ('connect.php');
 
-                                $query1 = "select * from nghi_phep_tbl inner join nhan_vien_tbl on nghi_phep_tbl.id_nv=nhan_vien_tbl.id_nv";
+                                $query1 = "select * from nghi_phep_tbl inner join nhan_vien_tbl on nghi_phep_tbl.id_nv=nhan_vien_tbl.id_nv order by ngay_bat_dau";
                                 $staff_result = $sql_connect->query($query1);
 
                                 while ($row = $staff_result->fetch_assoc()) {
                                     ?>
                                     <tr>
-                                        <th scope="row"><?php echo $row['id_nv']; ?></th>
+                                        <th scope="row"><?php echo $row['id_nghi']; ?></th>
                                         <td><?php echo $row['ten']; ?></td>
                                         <td><?php echo $row['ly_do']; ?></td>
                                         <td><?php echo $row['chi_tiet']; ?></td>
@@ -144,8 +144,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                 </div>
             </div>
         </div>
-
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
