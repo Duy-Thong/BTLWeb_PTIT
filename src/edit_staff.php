@@ -282,7 +282,16 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 <div class="col-md-4 mb-4 pb-2">
                                     <label class="form-label select-label">Chức vụ</label> <span class="error"> * </span>
                                     <select class="form-select form-control-lg" name="select_department">
-                                        <option value="" disabled selected>Chọn chức vụ</option>
+
+                                        <option value="<?php echo $id_chuc_vu ?>">
+                                            <?php
+                                            $query1 = "SELECT * FROM chuc_vu_tbl where id_cv=$department LIMIT 1";
+                                            $department_arr = $sql_connect->query($query1);
+
+                                            $chuc_vu = $department_arr->fetch_assoc();
+                                            echo $chuc_vu['chuc_vu'];
+                                            ?>
+                                        </option>
                                         <?php
                                         $query1 = "SELECT * FROM chuc_vu_tbl";
                                         $department_arr = $sql_connect->query($query1);
