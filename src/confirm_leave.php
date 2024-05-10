@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$id = $_GET['id'];
+$id = $_POST['id'];
 require_once ('connect.php');
 
 $query = "UPDATE nghi_phep_tbl SET trang_thai = 1 WHERE id_nghi = $id";

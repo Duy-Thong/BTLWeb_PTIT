@@ -71,13 +71,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
 
                 <hr style="border: 2px solid blue">
                 <br>
-
-                <br><br><br>
-
                 <div class="card">
-
                     <div class="card-body">
-
                         <table id="leave_table" class="table table-striped table-hover">
                             <thead style="position: sticky; top: 0; ">
                                 <tr>
@@ -110,7 +105,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                         <td><?php echo $row['ngay_bat_dau']; ?></td>
                                         <td><?php echo $row['ngay_ket_thuc']; ?></td>
 
-                                        <td>
+                                        <td class="leave_status">
                                             <?php
                                             if ($row['trang_thai'] == 0) {
                                                 echo "Chưa được duyệt";
@@ -121,22 +116,23 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                             }
                                             ?>
                                         </td>
+
                                         <td>
                                             <?php
                                             if ($row['trang_thai'] == 0) {
                                                 ?>
-                                                <a href="confirm_leave.php?id=<?php echo $row['id_nghi']; ?>"
-                                                    class="btn btn-success px-4">Duyệt</a>
+                                                <button class="btn btn-success px-4 confirm_leave"
+                                                    data-id="<?php echo $row['id_nghi']; ?>">Duyệt</button>
                                                 <?php
                                             } elseif ($row['trang_thai'] == 1) {
                                                 ?>
-                                                <a onclick="return confirm('Hủy duyệt đơn xin nghỉ?');"
-                                                    href="reject_leave.php?id=<?php echo $row['id_nghi']; ?>"
-                                                    class="btn btn-danger px-4">Hủy</a>
+                                                <button class="btn btn-danger px-4 reject_leave"
+                                                    data-id="<?php echo $row['id_nghi']; ?>">Hủy</button>
                                                 <?php
                                             }
                                             ?>
                                         </td>
+
                                     </tr>
                                     <?php
                                 }
@@ -146,16 +142,64 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                         </table>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
-        </div>
-        </div>
-        </div>
-        </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                function confirmLeave(e) {
+                    e.preventDefault();
+                    var leaveId = $(this).data('id');
+                    var button = $(this);
+
+                    $.ajax({
+                        url: 'confirm_leave.php',
+                        type: 'POST',
+                        data: {
+                            id: leaveId
+                        },
+                        success: function (response) {
+                            button.removeClass('btn-success').addClass('btn-danger').text('Hủy');
+                            button.closest('tr').find('.leave_status').text('Đã duyệt');
+                            button.off('click').on('click', rejectLeave);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                }
+                function rejectLeave(e) {
+                    e.preventDefault();
+                    var leaveId = $(this).data('id');
+                    var button = $(this);
+
+                    $.ajax({
+                        url: 'reject_leave.php',
+                        type: 'POST',
+                        data: {
+                            id: leaveId
+                        },
+                        success: function (response) {
+                            button.removeClass('btn-danger').addClass('btn-success').text('Duyệt');
+                            button.closest('tr').find('.leave_status').text('Chưa được duyệt');
+                            button.off('click').on('click', confirmLeave);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                }
+                $('.confirm_leave').on('click', confirmLeave);
+                $('.reject_leave').on('click', rejectLeave);
+            });
+
+
+
+        </script>
+
     </body>
 
     </html>
