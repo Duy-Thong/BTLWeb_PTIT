@@ -152,7 +152,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                     e.preventDefault();
                     var leaveId = $(this).data('id');
                     var button = $(this);
-
                     $.ajax({
                         url: 'confirm_leave.php',
                         type: 'POST',
