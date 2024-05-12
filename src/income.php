@@ -123,7 +123,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
                                 <?php
                                 $query = "SELECT tra_luong_tbl.id, nhan_vien_tbl.ten, tra_luong_tbl.thoi_gian, tra_luong_tbl.so_tien FROM tra_luong_tbl INNER JOIN nhan_vien_tbl ON tra_luong_tbl.id_nv = nhan_vien_tbl.id_nv";
 
-                                // Apply filter if provided
                                 if (isset($_GET['time_start']) && !empty($_GET['time_start']) && isset($_GET['time_end']) && !empty($_GET['time_end'])) {
                                     $query .= " WHERE tra_luong_tbl.thoi_gian BETWEEN '" . $_GET['time_start'] . "' AND '" . $_GET['time_end'] . "'";
                                 }
