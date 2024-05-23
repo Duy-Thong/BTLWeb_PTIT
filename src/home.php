@@ -247,7 +247,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_type']) && $_SESSION['
     </html>
     <?php
 } else {
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 ?>
