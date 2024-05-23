@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 10, 2024 lúc 09:53 AM
+-- Thời gian đã tạo: Th5 23, 2024 lúc 12:19 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -65,7 +65,7 @@ CREATE TABLE `login_tbl` (
 --
 
 INSERT INTO `login_tbl` (`id_login`, `username`, `password`, `user_type`) VALUES
-(1, 'admin1', 'admin1', 1),
+(1, 'duythong', 'admin', 1),
 (2, 'nam@gmail.com', '0123456789', 2),
 (3, 'thang@gmail.com', '0123456788', 2),
 (4, 'thong@gmail.com', '0123456787', 2),
@@ -102,7 +102,6 @@ INSERT INTO `luong_tbl` (`id_luong`, `id_nv`, `luong_co_ban`, `phu_cap`, `tong_l
 (4, 5, 40000000, 7000000, 47000000, '2024-04-23 15:58:21', '2024-04-23'),
 (5, 6, 30000000, 5000000, 35000000, '2024-04-23 15:58:21', '2024-04-23'),
 (6, 7, 40000000, 5000000, 45000000, '2024-04-23 15:58:21', '2024-04-23'),
-(7, 8, 35000000, 5000000, 40000000, '2024-04-23 15:58:21', '2024-04-23'),
 (8, 9, 25000000, 5000000, 30000000, '2024-04-23 15:58:21', '2024-04-23'),
 (15, 10, 20000000, 5000000, 25000000, '2024-05-09 16:09:17', '2024-05-09'),
 (16, 11, 36000000, 4000000, 40000000, '2024-05-09 19:34:32', '2024-05-10');
@@ -129,12 +128,11 @@ CREATE TABLE `nghi_phep_tbl` (
 --
 
 INSERT INTO `nghi_phep_tbl` (`id_nghi`, `id_nv`, `ly_do`, `chi_tiet`, `ngay_bat_dau`, `ngay_ket_thuc`, `ngay_tao_don`, `trang_thai`) VALUES
-(1, 3, 'Nghỉ ốm', 'Em bị sốt 39 độ 2 ngày nay rồi.', '2024-04-24', '2024-04-27', '2024-05-10 07:37:24', 0),
-(2, 5, 'Nghỉ chăm vợ đẻ', 'Vợ em vừa mới sinh, em xin phép ở nhà chăm vợ mấy hôm.', '2024-04-25', '2024-04-29', '2024-05-10 07:01:59', 1),
-(3, 6, 'Nghị ốm', 'Em bị sốt 39 độ 2 ngày nay rồi.', '2024-04-24', '2024-04-27', '2024-05-10 06:07:16', 1),
-(4, 8, 'Nghỉ do xe hỏng', 'Xe em bị nổ lốp em đang đi sửa.', '2024-04-24', '2024-04-24', '2024-05-10 07:37:15', 0),
-(5, 4, 'Nghỉ đi khám bệnh', 'Em đi khám lại dạ dày theo lịch hẹn', '2024-03-24', '2024-03-25', '2024-05-10 07:02:00', 1),
-(6, 2, 'Nghỉ đi đám cưới nyc', 'Em đi đám cưới nyc', '2024-05-15', '2024-05-18', '2024-05-10 06:06:48', 0);
+(1, 3, 'Nghỉ ốm', 'Em bị sốt 39 độ 2 ngày nay rồi.', '2024-04-24', '2024-04-27', '2024-05-17 15:41:45', 0),
+(2, 5, 'Nghỉ chăm vợ đẻ', 'Vợ em vừa mới sinh, em xin phép ở nhà chăm vợ mấy hôm.', '2024-04-25', '2024-04-29', '2024-05-17 15:41:24', 0),
+(3, 6, 'Nghị ốm', 'Em bị sốt 39 độ 2 ngày nay rồi.', '2024-04-24', '2024-04-27', '2024-05-17 15:41:27', 1),
+(5, 4, 'Nghỉ đi khám bệnh', 'Em đi khám lại dạ dày theo lịch hẹn', '2024-03-24', '2024-03-25', '2024-05-23 08:51:39', 1),
+(6, 2, 'Nghỉ đi đám cưới nyc', 'Em đi đám cưới nyc', '2024-05-15', '2024-05-18', '2024-05-17 15:41:24', 0);
 
 -- --------------------------------------------------------
 
@@ -162,16 +160,14 @@ CREATE TABLE `nhan_vien_tbl` (
 --
 
 INSERT INTO `nhan_vien_tbl` (`id_nv`, `ten`, `ngay_sinh`, `gioi_tinh`, `so_dien_thoai`, `email`, `dia_chi`, `id_chuc_vu`, `ngay_vao_lam`, `ngay_them`, `anh`, `ngay_cap_nhat`) VALUES
-(2, 'Phạm Hoài Nam', '2003-08-24', 'Nam', '0123456789', 'nam@gmail.com', 'Kim Chung, Đông Anh, Hà Nội', 10, '2024-01-01', '2024-05-10 05:33:27', 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-380-456332.png', '2024-01-01'),
+(2, 'Phạm Hoài Nam', '2003-08-24', 'Nam', '0123456789', 'nam@gmail.com', 'Kim Chung, Đông Anh, Hà Nội', 10, '2024-01-01', '2024-05-11 08:52:05', 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-380-456332.png', '2024-01-01'),
 (3, 'Nguyễn Quang Thắng', '2003-01-01', 'Nam', '0123456788', 'thang@gmail.com', 'Hà Đông, Hà Nội', 2, '2024-04-23', '2024-05-10 05:33:42', 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png', '2024-04-23'),
 (4, 'Đào Duy Thông', '2003-01-01', 'Nam', '0123456787', 'thong@gmail.com', 'Hà Đông, Hà Nội', 1, '2023-12-15', '2024-05-10 05:37:17', 'https://cdn-icons-png.flaticon.com/128/4140/4140061.png', '2023-12-15'),
 (5, 'Lê Minh Vương', '2003-01-01', 'Nam', '0123456786', 'vuong@gmail.com', 'Hà Đông, Hà Nội', 2, '2024-01-10', '2024-05-10 05:41:09', 'https://www.svgrepo.com/show/420337/animal-avatar-bear.svg', '2024-01-10'),
 (6, 'Hồ Văn Nhuận', '2003-01-01', 'Nam', '0123456785', 'nhuan@gmail.com', 'Hà Đông, Hà Nội', 5, '2024-04-23', '2024-05-10 05:42:08', 'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043273-animal-avatar-mutton-sheep_113242.png', '2024-04-23'),
-(7, 'Lê Văn An', '2003-01-01', 'Nam', '0123456784', 'an@gmail.com', 'Ba Đình, Hà Nội', 6, '2024-04-23', '2024-05-10 07:38:33', 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png', '2024-04-23'),
-(8, 'Nguyễn Văn B', '2003-01-01', 'Nam', '0123456783', 'b@gmail.com', 'Thanh Xuân, Hà Nội', 7, '2024-04-23', '2024-05-10 05:42:50', 'https://static.vecteezy.com/system/resources/previews/011/483/813/original/guy-anime-avatar-free-vector.jpg', '2024-04-23'),
+(7, 'Lê Văn An', '2003-01-01', 'Nam', '0123456784', 'an@gmail.com', 'Ba Đình, Hà Nội', 4, '2024-04-23', '2024-05-10 08:25:29', 'https://img.freepik.com/premium-vector/online-student-businessman-agency-hand-drawn-flat-stylish-cartoon-sticker-icon-concept-isolated_730620-196305.jpg', '2024-04-23'),
 (10, 'Nguyễn Minh Tùng', '2024-02-25', 'Nam', '0397403808', 'minhtung@gmail.com', '79 ngõ 22 Dương Lâm', 3, '2024-05-09', '2024-05-10 05:39:38', 'https://i.pinimg.com/474x/7c/c7/a6/7cc7a630624d20f7797cb4c8e93c09c1.jpg', '2024-05-09'),
-(11, 'Nguyễn Ngọc Hà', '2003-09-02', 'Nữ', '7635442642', 'ngocha@gmail.com', 'PTIT', 3, '2024-01-02', '2024-05-10 05:40:18', 'https://i.pinimg.com/564x/6e/2e/91/6e2e914b49c7aa38572a8668d527b6e2.jpg', '2024-01-02'),
-(13, 'Nguyễn Văn Thắng', '2004-01-15', 'Nam', '0386634627', 'thangvan@gmail.com', '217 Trần Phú,Hà Đông', 4, '2024-02-10', '2024-05-10 05:49:13', 'https://static.vecteezy.com/system/resources/previews/011/961/865/non_2x/programmer-icon-line-color-illustration-vector.jpg', '2024-02-10');
+(11, 'Nguyễn Ngọc Hà', '2003-09-02', 'Nam', '7635442642', 'ngocha@gmail.com', 'PTIT', 3, '2024-01-02', '2024-05-10 08:09:36', 'https://i.pinimg.com/564x/6e/2e/91/6e2e914b49c7aa38572a8668d527b6e2.jpg', '2024-01-02');
 
 -- --------------------------------------------------------
 
@@ -210,9 +206,6 @@ INSERT INTO `tra_luong_tbl` (`id`, `id_nv`, `thoi_gian`, `so_tien`) VALUES
 (17, 7, '2024-01-15', 21000000),
 (18, 7, '2024-02-15', 21500000),
 (19, 7, '2024-03-15', 22000000),
-(20, 8, '2024-01-15', 22500000),
-(21, 8, '2024-02-15', 23000000),
-(22, 8, '2024-03-15', 23500000),
 (23, 9, '2024-01-15', 24000000),
 (24, 9, '2024-02-15', 24500000),
 (25, 9, '2024-03-15', 25000000),
