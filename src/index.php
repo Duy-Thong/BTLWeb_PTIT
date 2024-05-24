@@ -12,29 +12,40 @@
     <style>
         .navbar-nav .nav-item {
             margin-left: auto !important;
+
         }
 
+        .navbar {
+            background-color: #5994ed;
+            color: #fff;
+            font-size: large !important;
+            font-weight: bold !important;
+            border-radius: 0.5rem;
+
+        }
 
         .row {
             margin-top: 20px;
         }
 
         .company-info {
-            background-color: #f8f9fa;
+            background-color: rgba(255, 255, 255, 0);
+
             padding: 20px;
             border-radius: 10px;
         }
 
         .company-info h2 {
-            color: #333;
-            font-size: 24px;
+            color: #black;
+            font-weight: bold;
+            font-size: 35px;
             margin-bottom: 15px;
         }
 
         .company-info p {
-            color: #666;
+            color: #black;
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.2;
             margin-bottom: 10px;
         }
 
@@ -42,12 +53,62 @@
             border-radius: 10px;
             overflow: hidden;
         }
+
+        header {
+            margin-top: 20px;
+            border-radius: 10px;
+            position: relative;
+            width: 100%;
+            min-height: auto;
+            text-align: center;
+            color: #fff;
+            background-image: url('https://blogcdn.muaban.net/wp-content/uploads/2022/08/16015853/ptit-diem-chuan-1.jpg') !important;
+            background-blend-mode: multiply;
+            background-position: center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+
+        header .header-content {
+            position: relative;
+            width: 100%;
+            padding: 100px 15px 70px;
+            text-align: center;
+        }
+
+        header .header-content .header-content-inner h1 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 50px;
+            font-weight: 300;
+        }
+
+        header .header-content .header-content-inner p {
+            margin-bottom: 50px;
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        table {
+            border: none;
+            width: 80%;
+        }
+
+        .footer {
+            justify-content: center;
+            text-align: center;
+            background-color: #9dd2f2;
+            align-items: center;
+            align-content: center;
+        }
     </style>
 </head>
 
-<body class="body">
-
-    <div class="container h-custom">
+<body class="body" style="background-color: #f5f5f5;">
+    <div class="container-fluid h-custom">
         <div class="row">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
@@ -66,19 +127,38 @@
                 </div>
             </nav>
         </div>
+        <header>
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1 style="font-size: 50px;font-weight: bold">PTIT IT SOLUTIONS</h1>
+                    <p style="font-size: 25px;font-weight: bold;color:#2876cb">Công ty giải pháp phần mềm PTIT</p>
+                    <a href="#" class="btn btn-primary btn-lg">Ứng tuyển ngay</a>
+                </div>
+            </div>
+        </header>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="company-info">
-                    <br>
-                    <h2>Giới Thiệu</h2>
+                    <?php
+                    require_once 'connect.php';
+
+                    $sql = "SELECT count(*) FROM nhan_vien_tbl";
+
+                    $result = $sql_connect->query($sql);
+                    echo '<h2>Giới Thiệu</h2> 
                     <p>PTIT IT SOLUTIONS là một công ty công nghệ hàng đầu cung cấp các giải pháp phần mềm và dịch vụ IT
                         chất lượng cao.</p>
                     <p>Chúng tôi cam kết mang lại sự hài lòng tối đa cho khách hàng thông qua các sản phẩm và dịch vụ
-                        của chúng tôi.</p>
-                </div>
+                        của chúng tôi.</p>';
+                    echo '<p>Với đội ngũ ' . $result->fetch_row()[0] . ' nhân sự giàu kinh nghiệm, đều là sinh viên PTIT, chúng tôi tự tin đáp ứng tất cả nhu cầu khách hàng. </p>';
 
+                    ?>
+
+
+
+                </div>
                 <div class="company-info" style="margin-top: 5px">
-                    <br>
+
                     <h2>Đối tác</h2>
                     <div class="table border-0">
                         <table>
@@ -101,15 +181,41 @@
                         </table>
                     </div>
                 </div>
-
                 <div class="company-info" style="margin-top: 5px">
-                    <h2>Thông tin liên hệ</h2>
-                    <p>Địa chỉ : km 10 Nguyễn Trãi Hà Đông</p>
-                    <p>Email : ctsv@ptit.edu.vn </p>
-                    <p>SDT : 024 3756 2186</p>
+                    <?php
+                    require_once 'connect.php';
+
+                    $sql = "SELECT * FROM chuc_vu_tbl";
+
+                    $result = $sql_connect->query($sql);
+                    echo '<h2>Vị trí trong công ty</h2>';
+                    if ($result->num_rows > 0) {
+                        echo '<table>';
+                        $counter = 0; // Đếm số chức vụ đã hiển thị
+                        while ($row = $result->fetch_assoc()) {
+                            if ($counter % 3 == 0) {
+                                if ($counter != 0) {
+                                    echo '</tr>'; // Đóng hàng hiện tại nếu không phải hàng đầu tiên
+                                }
+                                echo '<tr>'; // Bắt đầu một hàng mới
+                            }
+                            echo '<td>' . $row['chuc_vu'] . '</td>';
+                            $counter++;
+                        }
+                        echo '</tr>'; // Đóng hàng cuối cùng
+                        echo '</table>';
+                    } else {
+                        echo "Không có dữ liệu.";
+                    }
+                    ?>
                 </div>
+
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
+                <div class="row mb-5 mt3">
+                    <h2 style="text-align: center">Thông tin cập nhật</h2>
+                </div>
+
                 <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -136,6 +242,14 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer" style="color: white ">
+                <p> Địa chỉ : Km 10 Nguyễn Trãi Hà Đông | Email :
+                    ctsv@ptit.edu.vn | SDT : 024 3756 218</p>
+
+
             </div>
         </div>
     </div>
