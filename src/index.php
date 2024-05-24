@@ -16,7 +16,7 @@
         }
 
         .navbar {
-            background-color: #5994ed;
+            background-color: white;
             color: #fff;
             font-size: large !important;
             font-weight: bold !important;
@@ -112,7 +112,11 @@
         <div class="row">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.php">PTIT IT SOLUTIONS</a>
+                    <a class="navbar-brand" href="index.php">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Logo_PTIT_University.png/768px-Logo_PTIT_University.png"
+                            alt="PTIT Logo" style="height: 50px; padding-left: 50px;">
+
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -120,7 +124,7 @@
                     <div class="collapse navbar-collapse ms-auto" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php" style="margin-left: 800px">Đăng nhập</a>
+                                <a class="nav-link" href="login.php" style="margin-left: 1000px ;color:#e1102d ">Đăng nhập</a>
                             </li>
                         </ul>
                     </div>
@@ -212,7 +216,7 @@
 
             </div>
             <div class="col-lg-4">
-                <div class="row mb-5 mt3">
+                <div class="row mb-3 mt3">
                     <h2 style="text-align: center">Thông tin cập nhật</h2>
                 </div>
 
