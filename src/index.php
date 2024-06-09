@@ -12,12 +12,12 @@
     <style>
         .navbar-nav .nav-item {
             margin-left: auto !important;
-
         }
 
         .navbar {
+            height: 60px;
             margin-top: 0px !important;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8);
             color: #fff;
             font-size: large !important;
             font-weight: bold !important;
@@ -106,10 +106,17 @@
             font-size: 20px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+
+        body {
+            background-image: url('https://i.pinimg.com/736x/5a/26/52/5a265297fbd9a33a12eb3268c883e330.jpg');
+            backdrop-filter: blur(15px);
+            background-color: rgba(0, 0, 0, 0.2);
+            background-blend-mode: multiply;
+        }
     </style>
 </head>
 
-<body class="body" style="background-color: #f5f5f5;">
+<body>
     <div class="container-fluid h-custom">
         <div class="row" style="margin-top: 0px">
             <nav class="navbar navbar-expand-lg">
@@ -141,7 +148,7 @@
                 </div>
             </div>
         </header>
-        <div class="row">
+        <div class="row" style="color: white">
             <div class="col-lg-7">
                 <div class="company-info">
                     <?php
@@ -159,28 +166,32 @@
 
                     ?>
                 </div>
+
                 <div class="company-info" style="margin-top: 5px">
                     <h2 style="text-align: left">Đối tác của chúng tôi</h2>
-                    <div class="table table-border-0">
-                        <table>
-                            <tr>
-                                <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRewD-GA3LiD3hR67-LersZb2u_MKnocvklhk5Zh9W1zw&s"
-                                        alt="..." style="width: 90px; height: 100px;"></td>
-                                <td><img src="https://static.topcv.vn/company_logos/DI0mrf3w2ImlSatkOrvo1eMLqDJgJYhs_1698750119____c4502361f4204ef5b499959700371263.jpg"
-                                        alt="..." style="width: 90px; height: 100px;"></td>
-                                <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzvc1jTfA-jSsl0d9rbRLqGMpFIHf7-RpqFbRdti6asA&s"
-                                        alt="..." style="width: 90px; height: 100px;"></td>
-                                <td><img src="https://images.samsung.com/is/image/samsung/assets/vn/about-us/brand/logo/mo/256_144_3.png?$512_N_PNG$"
-                                        alt="..." style="width: 90px; height: 100px;"></td>
-                                <td><img src="https://cdn.tgdd.vn/Files/2021/01/07/1318645/logo-1_600x600.jpg" alt="..."
-                                        style="width: 90px; height: 100px;"></td>
-                                <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP0FHhId8C3RcM0QlHDJ3-mY8s6udzGQfMJ-KLUN8x0Q&s"
-                                        alt="..." style="width: 90px; height: 100px;"></td>
-
-
-                            </tr>
-                        </table>
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRewD-GA3LiD3hR67-LersZb2u_MKnocvklhk5Zh9W1zw&s"
+                                alt="..." style="width: 90px; height: 100px;">
+                        </div>
+                        <div class="col-2">
+                            <img src="https://static.topcv.vn/company_logos/DI0mrf3w2ImlSatkOrvo1eMLqDJgJYhs_1698750119____c4502361f4204ef5b499959700371263.jpg"
+                                alt="..." style="width: 90px; height: 100px;">
+                        </div>
+                        <div class="col-2">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzvc1jTfA-jSsl0d9rbRLqGMpFIHf7-RpqFbRdti6asA&s"
+                                alt="..." style="width: 90px; height: 100px;">
+                        </div>
+                        <div class="col-2">
+                            <img src="https://images.samsung.com/is/image/samsung/assets/vn/about-us/brand/logo/mo/256_144_3.png?$512_N_PNG$"
+                                alt="..." style="width: 90px; height: 100px;">
+                        </div>
+                        <div class="col-2">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP0FHhId8C3RcM0QlHDJ3-mY8s6udzGQfMJ-KLUN8x0Q&s"
+                                alt="..." style="width: 90px; height: 100px;">
+                        </div>
                     </div>
+
                 </div>
                 <div class="company-info" style="margin-top: 5px">
                     <?php
