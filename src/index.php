@@ -245,11 +245,10 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
         <div class="row" style="margin-top: 50px">
             <div class="col-4">
                 <iframe
-                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FKhoaCNTT1.PTIT%2Fvideos%2F453215290554513&width=500&show_text=false&appId=1098885021354546&height=281&autoplay=1"
+                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FKhoaCNTT1.PTIT%2Fvideos%2F453215290554513&width=500&show_text=false&appId=1098885021354546&height=281"
                     width="500" height="281" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                     allowfullscreen="true"
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
@@ -267,42 +266,6 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen autoplay>
                 </iframe>
-=======
-        <div class="row">
-            <div class="footer">
-                <div class="row">
-                    <div class="col-4 contact-info">
-                        <p> Km 10 Nguyễn Trãi, Hà Đông, Hanoi, Vietnam
-                            <br>
-                            024 3756 2186
-                            <br>
-                            ctsv@ptit.edu.vn
-                            <br>
-                            https://www.youtube.com/@PChannels
-                        </p>
-                    </div>
-                    <div class="col-4">
-                        <div class="social-network">
-                            <div>Connect with Us</div>
-                            <br>
-                            <div><a target="_blank" href="https://www.youtube.com/@PChannels"><img
-                                        src="https://www.samsungcareers.com.vn/img/youtube.dc10c907.svg"></a><a
-                                    target="_blank" href="https://www.facebook.com/HocvienPTIT"><img
-                                        src="	https://www.samsungcareers.com.vn/img/facebook.985cba83.svg"
-                                        class="mx-3"></a><a target="_blank"
-                                    href="https://www.linkedin.com/company/samsungvietnam"><img
-                                        src="	https://www.samsungcareers.com.vn/img/linkedin.808756f4.svg"></a></div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14901.454424631565!2d105.79380725!3d20.978057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1717838542408!5m2!1svi!2s"
-                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-
-                </div>
->>>>>>> 0944d1a1102ab252f4e357c3f4b883dacf25c360
             </div>
         </div>
         <div class="row">
@@ -342,7 +305,6 @@
             </div>
 
         </div>
-    </div>
     </div>
     </div>
 
