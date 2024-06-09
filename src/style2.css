@@ -1,0 +1,96 @@
+.navbar-nav .nav-item {
+    margin-left: auto !important;
+
+}
+
+.navbar {
+    margin-top: 0px !important;
+    background-color: white;
+    color: #fff;
+    font-size: large !important;
+    font-weight: bold !important;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.company-info {
+    background-color: rgba(255, 255, 255, 0);
+
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.company-info h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.company-info p {
+    color: black;
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.carousel {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+header {
+    margin-top: 20px;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    background-image: url('https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/440024490_756185783345437_2645742285185558349_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHI_mjR9CGuLAdnBGTdDiLM45v1zeyW8Tzjm_XN7JbxPLZPpWH-1YGpceSd70Wu23s9SdeJ5nGbh09w82KkItJ6&_nc_ohc=5zaj0nwgwXYQ7kNvgG5GS-c&_nc_ht=scontent.fhan14-5.fna&cb_e2o_trans=q&oh=00_AYB8Stu6vE6Gdjsx_pkDjK89FvG8Hhg9yWI6Ix0b93z9DQ&oe=666A044E') !important;
+    background-blend-mode: multiply;
+    background-position: bottom center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 500px;
+    padding-top: 150px;
+
+}
+
+header .header-content {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px 70px;
+    text-align: center;
+}
+
+
+table {
+    width: 90%;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0) !important;
+
+}
+
+
+.footer {
+    color: white;
+    justify-content: center;
+    text-align: center;
+    background-color: #444444;
+    align-items: center;
+    align-content: center;
+}
+
+.col-4 {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
